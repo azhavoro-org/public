@@ -24,7 +24,7 @@ jobs:
             blank.yml \
             --repo=azhavoro-org/private \
             -f triggeredBy=${{ github.repository }} \
-            -f commitSha=${{ github.sha }}
+            -f commitSha=${{ github.sha }} \
             -f branch=${{ github.ref }}
 
       # - name: Trigger repository dispatch
