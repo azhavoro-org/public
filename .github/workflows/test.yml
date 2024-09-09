@@ -19,7 +19,7 @@ jobs:
       - name: Trigger private repository workflow
         env:
           GH_TOKEN: "${{ steps.gen-token.outputs.token }}"
-          GH_REPO: "private"
+          GH_REPO: "azhavoro-org/private"
         run: |
           gh workflow run \
             blank.yml \
