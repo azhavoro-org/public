@@ -23,8 +23,8 @@ jobs:
           gh workflow run \
             blank.yml \
             --repo=azhavoro-org/private \
-            -f triggered_by=${{ github.repository }} \
-            -f commit_sha=${{ github.sha }}
+            -f triggeredBy=${{ github.repository }} \
+            -f commitSha=${{ github.sha }}
             -f branch=${{ github.ref }}
 
       # - name: Trigger repository dispatch
