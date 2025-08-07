@@ -27,7 +27,7 @@ jobs:
             -f 'event_type=on-demand-test' \
             -F "client_payload[triggeredBy]=${{ github.repository }}" \
             -F "client_payload[commitSha]=${{ github.sha }}" \
-            -F "client_payload[branch]=${{ github.ref }}" \
+            -F "client_payload[branch]=${{ github.ref }}"
         
           # gh workflow run \
           #   blank.yml \
