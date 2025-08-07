@@ -24,13 +24,8 @@ jobs:
           gh api \
             --method POST \
             /repos/${GH_REPO}/dispatches \
-            -f 'event_type=on-demand-test' \
+            -f 'event_type=update of CVAT submodule' \
             -F "client_payload[triggeredBy]=${{ github.repository }}" \
             -F "client_payload[commitSha]=${{ github.sha }}" \
             -F "client_payload[branch]=${{ github.ref }}"
-        
-          # gh workflow run \
-          #   blank.yml \
-          #   -f triggeredBy=${{ github.repository }} \
-          #   -f commitSha=${{ github.sha }} \
-          #   -f branch=${{ github.ref }}
+       
