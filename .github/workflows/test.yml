@@ -21,8 +21,16 @@ jobs:
           GH_TOKEN: "${{ steps.gen-token.outputs.token }}"
           GH_REPO: "azhavoro-org/private"
         run: |
-          gh workflow run \
-            blank.yml \
-            -f triggeredBy=${{ github.repository }} \
-            -f commitSha=${{ github.sha }} \
-            -f branch=${{ github.ref }}
+          gh api \
+            --method POST \
+            /repos/azhavoro-org/private/dispatches \
+            -f 'event_type=on-demand-test' \
+            -F "client_payload[triggeredBy]=${{ github.repository }}" \
+            -F "client_payload[commitSha]=${{ github.sha }}" \
+            -F "client_payload[branch]=${{ github.ref }}" \
+        
+          # gh workflow run \
+          #   blank.yml \
+          #   -f triggeredBy=${{ github.repository }} \
+          #   -f commitSha=${{ github.sha }} \
+          #   -f branch=${{ github.ref }}
