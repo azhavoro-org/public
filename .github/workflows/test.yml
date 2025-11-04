@@ -24,7 +24,7 @@ jobs:
           gh api \
             --method POST \
             /repos/${GH_REPO}/dispatches \
-            -f 'event_type=update of CVAT submodule' \
+            -f 'event_type=upstream_updated' \
             -F "client_payload[triggeredBy]=${{ github.repository }}" \
             -F "client_payload[commitSha]=${{ github.sha }}" \
             -F "client_payload[branch]=${{ github.ref }}"
